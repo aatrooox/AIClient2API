@@ -30,7 +30,8 @@
     "babel-plugin-transform-import-meta": "^2.3.3",
     "jest": "^29.7.0",
     "jest-environment-node": "^29.7.0",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "pm2": "^7.0.4"
   },
   "scripts": {
     "start": "node src/core/master.js",
@@ -45,6 +46,12 @@
     "test:integration": "node run-tests.js --integration",
     "test:summary": "node test-summary.js",
     "help": "node src/scripts/help.js",
-    "example:api": "node src/scripts/example-api.js"
+    "example:api": "node src/scripts/example-api.js",
+    "sync:upstream": "bash scripts/sync-upstream.sh",
+    "daemon:start": "pm2 start ecosystem.config.cjs",
+    "daemon:stop": "pm2 stop aiclient2api",
+    "daemon:restart": "pm2 restart aiclient2api",
+    "daemon:logs": "pm2 logs aiclient2api",
+    "daemon:status": "pm2 status aiclient2api"
   }
 }
